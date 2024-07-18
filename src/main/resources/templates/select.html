@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>楽曲操作システム★一覧</h1>
+	<a href="javascript:window.history.back()">メニューに戻る</a>
+
+	<table>
+		<thead>
+			<tr>
+				<th>曲番号</th>
+				<th>曲名</th>
+				<th>歌手名</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="music : ${musics}">
+				<td th:text="${music.songId}">ERROR!</td>
+				<td th:text="${music.songName}">ERROR!</td>
+				<td th:text="${music.singer}">ERROR!</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

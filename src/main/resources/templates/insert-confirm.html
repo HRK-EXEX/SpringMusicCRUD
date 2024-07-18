@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>楽曲操作システム★登録</h1>
+	<a href="javascript:window.history.back()">メニューに戻る</a><br>
+	<form th:action="@{/insert-done}" id="confirm" method="post">
+		<input type="hidden" name="name" value="">
+	</form>
+	
+	<button form="confirm" type="submit">登録する</button>
+	<button onclick="window.history.back()">戻る</button>
+</body>
+</html>

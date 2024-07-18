@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<h1>楽曲操作システム★削除</h1>
+	<a href="javascript:window.history.back()">メニューに戻る</a><br>
+	<form th:action="@{/update-input}">
+		削除したい曲番号を入力：<input name="id">
+	</form>
+		
+	<table>
+		<thead>
+			<tr>
+				<th>曲番号</th>
+				<th>曲名</th>
+				<th>歌手名</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="music : ${musics}">
+				<td th:text="${music.songId}">ERROR!</td>
+				<td th:text="${music.songName}">ERROR!</td>
+				<td th:text="${music.singer}">ERROR!</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
