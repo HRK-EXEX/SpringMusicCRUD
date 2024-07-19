@@ -6,9 +6,17 @@
 </head>
 <body>
 	<h1>楽曲操作システム★登録</h1>
-	<a href="javascript:window.history.back()">メニューに戻る</a><br>
+	<a th:href="@{/}">メニューに戻る</a><br>
+	<h3>以下の楽曲を登録します。よろしいですか？</h3>
+	
+	<p>
+		楽曲名：[[${musicForm.songName}]]<br>
+		歌い手：[[${musicForm.singer}]]
+	</p> 
+	
 	<form th:action="@{/insert-done}" id="confirm" method="post">
-		<input type="hidden" name="name" value="">
+		<input type="hidden" name="songName" th:value="${musicForm.songName}">
+		<input type="hidden" name="singer" th:value="${musicForm.singer}">
 	</form>
 	
 	<button form="confirm" type="submit">登録する</button>

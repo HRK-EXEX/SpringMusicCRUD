@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.example.demo.entity.Music;
+import com.example.demo.form.MusicForm;
 import com.example.demo.service.MusicService;
 
 @Controller
@@ -30,6 +31,18 @@ public class MainViewer {
 	@PostMapping(value="music", params="insert")
 	public String insertView() {
 		return "insert";
+	}
+	
+	@PostMapping("insert-confirm")
+	public String insertConfirmView(MusicForm mf) {
+		return "insert-confirm";
+	}
+	
+	@PostMapping("insert-done")
+	public String insertDoneView(MusicForm mf) {
+		Music m = new Music(null, mf.getSongName(), mf.getSinger());
+		mus.insertMusic(m);
+		return "insert-done";
 	}
 	
 	@PostMapping(value="music", params="update")
