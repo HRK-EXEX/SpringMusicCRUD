@@ -4,16 +4,17 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <link rel="stylesheet" href="/index.css">
+<link rel="stylesheet" href="/select.css">
 </head>
 <body>
-	<h1 class="title">楽曲操作システム★登録</h1>
+	<h1 class="title">楽曲操作システム★更新入力</h1>
 	<p><button onClick="window.history.back()">メニューに戻る</button></p>
 	<hr>
 	
 	<h3>新規登録する楽曲の情報を入力してください。</h3>
-	<form th:action="@{/insert-confirm}" method="post">
-		<p>楽曲名：<input name="songName" required></p>
-		<p>歌い手：<input name="singer" required></p>
+	<form th:action="@{/update-confirm}" method="post">
+		<p>楽曲名：<input name="songName" th:value="${memberForm.songName}" required></p>
+		<p>歌い手：<input name="singer" th:value="${memberForm.singer}" required></p>
 		<button type="submit">確認する</button>
 	</form>
 </body>

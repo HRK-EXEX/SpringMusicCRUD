@@ -3,9 +3,12 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<link rel="stylesheet" href="/index.css">
 </head>
 <body>
-	<h1>楽曲操作システム★登録完了</h1>
-	<a th:href="@{/}">メニューに戻る</a><br>
+	<h1 class="title">楽曲操作システム★登録完了</h1>
+	<p><button th:onClick="@{location.href='/'}">メニューに戻る</button></p>
+	<hr>
+	<h3>新規登録が完了しました。</h3>
 </body>
 </html>

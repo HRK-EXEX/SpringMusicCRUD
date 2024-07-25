@@ -1,1 +1,16 @@
 @charset "UTF-8";
+
+.title {
+	background: #abcbf5;
+	padding: 8px;
+}
+
+button {
+	background-color: #e0f0ff;
+	border: 1px solid #205080;
+	border-radius: 8px;
+	cursor: pointer;
+	outline: none;
+	padding: 8px 20px;
+	appearance: none;
+}

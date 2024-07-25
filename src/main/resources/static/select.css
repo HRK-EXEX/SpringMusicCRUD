@@ -1,1 +1,27 @@
 @charset "UTF-8";
+
+table {
+	border-collapse: collapse;
+	border: 2px solid #002040;
+}
+
+th {
+	background: #0090ff;
+}
+
+th, td {
+	border: 1px solid #306090;
+	padding: 8px;
+}
+
+tr:nth-child(even) {
+	background: #9fcfff;
+}
+
+tr:nth-child(odd) {
+	background: #bfdfff;
+}
+
+td:nth-child(1) {
+	text-align: right;
+}
