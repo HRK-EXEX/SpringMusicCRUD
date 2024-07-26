@@ -8,13 +8,14 @@
 </head>
 <body>
 	<h1 class="title">楽曲操作システム★更新入力</h1>
-	<p><button onClick="window.history.back()">メニューに戻る</button></p>
+	<p><button onClick="location.href='/'">メニューに戻る</button></p>
 	<hr>
 	
-	<h3>新規登録する楽曲の情報を入力してください。</h3>
-	<form th:action="@{/update-confirm}" method="post">
-		<p>楽曲名：<input name="songName" th:value="${memberForm.songName}" required></p>
-		<p>歌い手：<input name="singer" th:value="${memberForm.singer}" required></p>
+	<h3>更新する楽曲の情報を入力してください。</h3>
+	<form th:action="@{/update-confirm}" method="POST">
+		<p>楽曲名：<input name="songName" th:value="${music.songName}" maxlength="20" required></p>
+		<p>歌い手：<input name="singer" th:value="${music.singer}" maxlength="20" required></p>
+		<input type="hidden" name="songId" th:value="${musicForm.songId}">
 		<button type="submit">確認する</button>
 	</form>
 </body>

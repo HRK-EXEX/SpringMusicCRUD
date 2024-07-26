@@ -1,5 +1,7 @@
 package com.example.demo.controller;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,10 +54,55 @@ public class MainViewer {
 		return "update";
 	}
 	
+	@PostMapping("update-input")
+	public String updateInputView(MusicForm mf, Model m) {
+		Optional<Music> music = mus.find(mf.getSongId());
+		if (music.isPresent()) {
+			Music update = music.get();
+			m.addAttribute("music", update);
+		}
+		return "update-input";
+	}
+	
+	@PostMapping("update-confirm")
+	public String updateConfirmView(MusicForm mf, Model m) {
+		Optional<Music> music = mus.find(mf.getSongId());
+		if (music.isPresent()) {
+			Music update = music.get();
+			m.addAttribute("musicOld", update);
+		}
+		return "update-confirm";
+	}
+	
+	@PostMapping("update-done")
+	public String updateDoneView(MusicForm mf) {
+		Music m = new Music(mf.getSongId(), mf.getSongName(), mf.getSinger());
+		//System.out.printf("ID: %d, Name: %s, Singer: %s", m.getSongId(), m.getSongName(), m.getSinger());
+		mus.insertMusic(m); // INSERT BECOMES UPDATE
+		return "update-done";
+	}
+	
 	@PostMapping(value="music", params="delete")
 	public String deleteView(Model m) {
 		Iterable<Music> musics = mus.findAll();
 		m.addAttribute("musics", musics);
 		return "delete";
+	}
+	
+	@PostMapping("delete-confirm")
+	public String deleteConfirmView(MusicForm mf, Model m) {
+		Optional<Music> music = mus.find(mf.getSongId());
+		if (music.isPresent()) {
+			Music update = music.get();
+			m.addAttribute("music", update);
+		}
+		return "delete-confirm";
+	}
+	
+	@PostMapping("delete-done")
+	public String deleteDoneView(MusicForm mf) {
+		//System.out.printf("ID: %d, Name: %s, Singer: %s", m.getSongId(), m.getSongName(), m.getSinger());
+		mus.deleteMusic(mf.getSongId()); // INSERT BECOMES UPDATE
+		return "delete-done";
 	}
  }

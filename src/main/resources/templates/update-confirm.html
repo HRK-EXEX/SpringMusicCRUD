@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+	<h1 class="title">楽曲操作システム★更新確認</h1>
+	<p><button th:onClick="@{location.href='/'}">メニューに戻る</button></p>
+	<hr>
+	
+	<h3>以下の楽曲を更新します。よろしいですか？</h3>
+	<p>楽曲ID：[[${musicOld.songId}]]</p>
+	<p>楽曲名：[[${musicOld.songName}]] → [[${musicForm.songName}]]</p>
+	<p>歌い手：[[${musicOld.singer}]] → [[${musicForm.singer}]]</p> 
+	<form th:action="@{/update-done}" id="confirm" method="POST">
+		<input type="hidden" name="songId" th:value="${musicOld.songId}">
+		<input type="hidden" name="songName" th:value="${musicForm.songName}">
+		<input type="hidden" name="singer" th:value="${musicForm.singer}">
+	</form>
+	
+	<button form="confirm" type="submit">更新する</button>
+	<button onclick="window.history.back()">戻る</button>
+</body>
+</html>

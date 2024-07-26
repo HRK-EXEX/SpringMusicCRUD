@@ -13,4 +13,17 @@ button {
 	outline: none;
 	padding: 8px 20px;
 	appearance: none;
+	transition: 0.1s;
+}
+
+button:hover {
+	background-color: #205080;
+	border: 1px solid #e0f0ff;
+	color: #ffffff;
+}
+
+button:active {
+	background-color: #d1d147;
+	border: 1px solid #ffffdf;
+	color: #ffffff;
 }

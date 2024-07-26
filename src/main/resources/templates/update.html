@@ -10,8 +10,8 @@
 	<h1 class="title">楽曲操作システム★更新</h1>
 	<p><button onClick="window.history.back()">メニューに戻る</button></p>
 	<hr>
-	<form th:action="@{/update-input}">
-		<p>更新したい曲番号を入力：<input name="id"><button type="submit">更新する</button></p>
+	<form th:action="@{/update-input}" method="POST">
+		<p>更新したい曲番号を入力：<input name="songId" required>　<button type="submit">更新する</button></p>
 	</form>
 		
 	<table>

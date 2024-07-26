@@ -11,9 +11,9 @@
 	<hr>
 	
 	<h3>新規登録する楽曲の情報を入力してください。</h3>
-	<form th:action="@{/insert-confirm}" method="post">
-		<p>楽曲名：<input name="songName" required></p>
-		<p>歌い手：<input name="singer" required></p>
+	<form th:action="@{/insert-confirm}" method="POST">
+		<p>楽曲名：<input name="songName" maxlength="20" required></p>
+		<p>歌い手：<input name="singer" maxlength="20" required></p>
 		<button type="submit">確認する</button>
 	</form>
 </body>

@@ -12,8 +12,8 @@
 	
 	<hr>
 	
-	<form th:action="@{/update-input}">
-		削除したい曲番号を入力：<input name="id">
+	<form th:action="@{/delete-confirm}" method="POST">
+		<p>削除したい曲番号を入力：<input name="songId" required>　<button type="submit">削除する</button></p>
 	</form>
 		
 	<table>

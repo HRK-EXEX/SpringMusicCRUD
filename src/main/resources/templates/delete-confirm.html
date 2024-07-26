@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel="stylesheet" href="/index.css">
+</head>
+<body>
+	<h1 class="title">楽曲操作システム★削除確認</h1>
+	<p><button th:onClick="@{location.href='/'}">メニューに戻る</button></p>
+	<hr>
+	
+	<h3>以下の楽曲を削除します。よろしいですか？</h3>
+	<p>楽曲ID：[[${music.songId}]]</p>
+	<p>楽曲名：[[${music.songName}]]</p>
+	<p>歌い手：[[${music.singer}]]</p> 
+	<form th:action="@{/delete-done}" id="confirm" method="POST">
+		<input type="hidden" name="songId" th:value="${musicForm.songId}">
+	</form>
+	
+	<button form="confirm" type="submit">削除する</button>
+	<button onclick="window.history.back()">戻る</button>
+</body>
+</html>
